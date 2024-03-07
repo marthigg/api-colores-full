@@ -1,11 +1,22 @@
 require("dotenv").config();
 const express = require("express");
+const {getColores} = require("./db");
 
 const server = express();
 
 
-server.get("/colores", (peticion,respuesta) => {
-    respuesta.send("...get");
+server.get("/colores", async (peticion,respuesta) => {
+    try{
+        let colores = await getColores();
+
+        respuesta.json(colores);
+
+    }catch(error){
+
+        respuesta.status(500);
+
+        respuesta.json(error);
+    }
 });
 
 server.post("/colores/crear", (peticion,respuesta)  => {
