@@ -8,8 +8,12 @@
 <body>
     <script>
 
-        fetch("/colores/nuevo", {
+        fetch("/colores/borrar/65ef077192f7422e6a2bdb29", {
             method :  "DELETE"
+            /*body : JSON.stringify({r : 23, g : 123, b : 200}),
+            headers :  {
+                "Content-type" : "application/json"
+            }*/
         })
         .then(respuesta => respuesta.text())
         .then(respuesta => console.log(respuesta));
