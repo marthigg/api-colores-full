@@ -4,6 +4,8 @@ const {getColores} = require("./db");
 
 const server = express();
 
+server.use("/pruebas", express.static("./pruebas"));
+
 
 server.get("/colores", async (peticion,respuesta) => {
     try{
